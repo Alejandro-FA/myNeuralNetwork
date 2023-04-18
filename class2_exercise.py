@@ -2,7 +2,21 @@ import tensorflow as tf
 import myNeuralNetwork as NN
 
 
-X = tf.constant([2, -1, 2], shape=[3,1], dtype=tf.double)
+X = tf.transpose(
+    tf.constant([
+        [2, -1, 2],
+        [2, -1, 2],
+        [2, -1, 2],
+        [2, -1, 2],
+        [2, -1, 2],
+        [2, -1, 2],
+        [2, -1, 2],
+        [2, -1, 2],
+        [2, -1, 2],
+        [2, -1, 2]
+    ], dtype=tf.double)
+)
+
 y = tf.constant(1, dtype=tf.double)
 W_1 = tf.constant([[1, 2, 0], [0, 3, 0], [4, 4, 0], [0, 0, -2]], dtype=tf.double)
 b_1 = tf.constant([2, 1, 1, 3], shape=[4,1], dtype=tf.double)

@@ -28,8 +28,12 @@ class Dense(BaseLayer):
     def backward_propagation(self, dA, debug=False):
         dg = self.activation.derivative_at(self.Z)
         dZ = tf.multiply(dA, dg)
-        self.dW = tf.matmul(dZ, self.A_prev, transpose_b=True)
-        self.db = dZ
+
+        # Compute parameter derivatives
+        # It computes the mean for all input samples
+        n = tf.cast(tf.shape(dZ)[1], dtype=dZ.dtype) # number of samples
+        self.dW = tf.divide( tf.matmul(dZ, self.A_prev, transpose_b=True), n )
+        self.db = tf.reduce_mean(dZ, axis=1, keepdims=True)
         dA_prev = tf.matmul(self.W, dZ, transpose_a=True) # dL / dA[l-1] 
 
         if debug:

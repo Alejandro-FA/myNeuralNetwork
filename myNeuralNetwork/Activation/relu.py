@@ -11,4 +11,4 @@ class ReLU(BaseActivation):
 
     def derivative_at(self, z):
         g = tf.maximum(0, z)
-        return tf.maximum(0, g)
+        return tf.sign(g)

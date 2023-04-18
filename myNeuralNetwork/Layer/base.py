@@ -1,8 +1,21 @@
+"""
+Abstract Base Class (ABC) for implementing an neural network layer.
+Implementing classes should inherit from `BaseLayer`.
+"""
+
 from abc import ABC, abstractmethod
 from myNeuralNetwork.Activation.base import BaseActivation
 
 
 class BaseLayer(ABC):
+    """
+    Class to represent Neural Networks layers and update parameters.
+
+    Attributes:
+        W: A matrix representation of the weights of the layer.
+        b: A vector representation of the biases of the layer.
+        activation: Activation function of the layer.
+    """
     def __init__(self, weights, biases, activation: BaseActivation):
         """
         Initializes a new instance of a Layer class.

@@ -1,6 +1,6 @@
 """
 This module includes basic Neural Networks functionalities.
-It has been created to practice basic implementations of NN.
+It has been created to practice basic implementations of Neural Networks.
 The TensorFlow library is only used for algebraic operations.
 """
 from myNeuralNetwork.Layer.base import BaseLayer
@@ -8,9 +8,8 @@ from myNeuralNetwork.Layer.base import BaseLayer
 
 class NeuralNetwork:
     """
-    Custom class for creating neural networks and using
-    gradient descent (forward_propagation and backward_propagation)
-    to update the parameters.
+    Custom class for creating neural networks and using forward_propagation
+    and backward_propagation to update the parameters.
     """
     def __init__(self, X, y):
         self.X = X

@@ -1,16 +1,12 @@
+"""
+Fully connected layer of a neural network.
+"""
+
 import tensorflow as tf
 from myNeuralNetwork.Activation.base import BaseActivation
 from myNeuralNetwork.Layer.base import BaseLayer
 
 class Dense(BaseLayer):
-    """
-    Class to represent Neural Networks layers and use gradient descent to update
-    parameters.
-
-    Attributes:
-        W: A matrix representation of the weights of the layer.
-        b: A vector representation of the biases of the layer.
-    """
     def __init__(self, weights, biases, activation: BaseActivation):
         super().__init__(weights, biases, activation)
         self.A_prev = None

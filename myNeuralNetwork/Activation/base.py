@@ -1,3 +1,8 @@
+"""
+Abstract Base Class (ABC) for implementing an activation function.
+Implementing classes should inherit from `BaseActivation`.
+"""
+
 from abc import ABC, abstractmethod
 
 

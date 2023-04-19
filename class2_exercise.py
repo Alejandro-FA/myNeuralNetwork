@@ -17,7 +17,7 @@ X = tf.transpose(
     ], dtype=tf.double)
 )
 
-y = tf.constant(1, dtype=tf.double)
+y = tf.constant(1, shape=[1,10], dtype=tf.double)
 W_1 = tf.constant([[1, 2, 0], [0, 3, 0], [4, 4, 0], [0, 0, -2]], dtype=tf.double)
 b_1 = tf.constant([2, 1, 1, 3], shape=[4,1], dtype=tf.double)
 W_2 = tf.constant([3, 2, 1, 1], shape=[1, 4], dtype=tf.double)
@@ -32,7 +32,7 @@ network.add_layer(l2)
 
 
 output = network.forward_propagation(debug=True)
-error = NN.CrossEntropy().error_derivative(output, y)
+error = NN.Loss.CrossEntropy().error_derivative(output, y)
 network.backward_propagation(error, debug=True)
 network.update_weights(learning_rate=0.01, debug=True)
 
